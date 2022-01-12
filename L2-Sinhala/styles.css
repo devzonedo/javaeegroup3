@@ -1,0 +1,33 @@
+ p {
+   color: red;
+   text-align: center;
+   }
+   
+   
+   #phpid {
+   background-color:yellow;
+   }
+   
+   
+   #javaid {
+   color:blue;
+   }
+   
+   
+   .mystyle {
+   color: #0000FF;
+   }
+   
+   
+   .myborder {
+      border-style: dotted;
+   }
+   
+   
+   #mydiv{
+   background-color: #80C4C4;
+   width: 50%;
+   height: 250px;
+   padding:50px;
+   margin:100px;
+   }

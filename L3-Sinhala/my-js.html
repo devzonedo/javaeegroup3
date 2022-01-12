@@ -1,0 +1,117 @@
+<html>
+
+<head>
+<title> My JavaScript </title>
+
+
+
+<script>
+
+/*
+alert('Hi JS');
+console.log('this is a console log');
+var  n1 = 25;
+var n2 = 10 ;
+var ans = n1 + n2;   // + - * / 
+alert(ans);
+*/
+
+// IF - condition 
+/*
+if(10<5){
+console.log('True Part');
+}else  if(3<6){
+console.log('False Part');
+}else{
+}
+*/
+
+
+
+//methods   
+
+
+
+function myFirst(){
+alert(' this is myFirst function');
+}
+
+
+function createStudentMarks(){
+
+var  stuMark =  document.getElementById("mark").value;
+console.log(stuMark);
+
+
+
+if(stuMark <= 35 ){
+   document.getElementById("rst").innerHTML = "F";
+} else if(stuMark <= 55){
+   document.getElementById("rst").innerHTML = "S";
+} else if(stuMark <= 65){
+  document.getElementById("rst").innerHTML = "C";
+} else if(stuMark <= 75){
+  document.getElementById("rst").innerHTML = "B";
+} else if(stuMark <= 100){
+  document.getElementById("rst").innerHTML = "A";
+} else {
+	alert("Invalid Input Found");
+	  document.getElementById("rst").innerHTML = "";
+}
+
+
+
+
+}
+ 
+ 
+//myFirst();
+
+
+</script>
+
+
+
+<style>
+   #rst {
+   color : red;
+   text-align:center;
+   }
+   
+   #markDiv{
+   width: 40%;
+   background-color: yellow;
+   border-style: solid;
+   margin-left: auto;
+   margin-right: auto;
+   text-align:center;
+   padding: 50px;
+   }
+   
+   
+</style>
+
+
+</head>
+
+<body> 
+
+
+
+ <div id="markDiv">
+ 
+ 
+ <img src="download.png" width="150px" /> 
+ <br> <br>
+ <label>  Enter Marks </label>
+ <input type="text"  id="mark" />
+ <button onclick="createStudentMarks()">  Calculate </button>
+ </div>
+
+
+
+ <h1 id="rst"> </h1>
+
+
+</body>
+</html>

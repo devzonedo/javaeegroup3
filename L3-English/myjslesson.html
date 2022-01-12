@@ -1,0 +1,107 @@
+<html>
+<head>
+  <title> JS </title>
+  
+  
+ <script>
+   
+   //alert('Hi Javascript');
+   console.log('log line 9');
+   console.log('Hello js');
+   /*
+   var n1 = 5;
+   var n2 = 8;
+   
+   var ans = n1 + n2 ;
+   //alert(ans);
+   
+   
+   function myFunction(){
+     alert('this is myFunction');
+   }
+   */
+   // myFunction();
+   
+   
+   
+  /* if( 10 >= 20 ){
+   console.log('OK true part');
+   }else{
+   console.log('NO false part');
+   } */
+   
+   
+   
+   function calculateMarks(){
+	//alert('calculateMarks');
+	var stuMark = document.getElementById("mrk").value;
+	console.log(stuMark);
+	//alert(stuMark);
+	
+	if(stuMark <= 35){
+	  document.getElementById("rst").innerHTML = "F";
+	} else if(stuMark <= 55){
+	  document.getElementById("rst").innerHTML = "S";
+	} else if(stuMark <= 65){
+	   document.getElementById("rst").innerHTML = "C";
+	} else if(stuMark <= 75){
+	   document.getElementById("rst").innerHTML = "B";
+	}  else if(stuMark <= 100){
+	   document.getElementById("rst").innerHTML = "A";
+	} else {
+		alert('Invalid Input Found');
+		 document.getElementById("rst").innerHTML = "";
+	}
+	
+	
+	
+	
+   }
+   
+   
+   
+ 
+ </script>
+ 
+ 
+ <style>
+ #rst {
+  color: red;
+  text-align: center;
+ }
+ 
+ 
+ #myDiv{
+ background-color: yellow;
+ width:30%;
+ margin-left:auto;
+ margin-right:auto;
+   text-align: center;
+   border-style: solid;
+   padding: 50px;
+ }
+ 
+ </style>
+ 
+  
+</head>
+
+<body>
+
+
+
+<div id="myDiv">
+
+    <img src="download.png" width="150px" /> <br><br>
+	<label> Enter Marks </label>
+	<input type="text" id="mrk" /> 
+	<button onclick="calculateMarks()"> Calculate </button>
+</div>
+
+
+<h1 id="rst"> </h1>
+
+
+
+</body>
+</html>

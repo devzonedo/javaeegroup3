@@ -1,0 +1,26 @@
+ P {
+    color: red;
+	/* font-size:25; */
+	text-align: center;
+   }
+   
+   
+   
+   #sriid {
+   color:blue;
+   }
+   
+   #indid{
+   background-color: yellow;
+   }
+   
+   
+   
+   .mycls {
+    color: #7ED6D6;
+   }
+   
+   
+   .myborder{
+   border-style: dotted;
+   }
