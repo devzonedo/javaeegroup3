@@ -19,31 +19,37 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoginServlet extends HttpServlet {
 
-   
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        System.out.println("Servlet>>LoginServlet");
-        
+        System.out.println("servlet>>LoginServlet");
         RequestDispatcher rd = null;
         
         try {
-            String uname = request.getParameter("username");
-            String pword = request.getParameter("pword");
             
-            System.out.println("username:"+uname);
-            System.out.println("Password:"+pword);
+            String username = request.getParameter("username");
+            String pword = request.getParameter("pword");
+            System.out.println("username:"+username);
+            System.out.println("pword:"+pword);
+            
+          rd = request.getRequestDispatcher("/home.jsp");
             
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        request.setAttribute("msg", "success");
-        
-        rd = request.getRequestDispatcher("/home.jsp");
+                request.setAttribute("msg", "success");
         rd.forward(request, response);
-        
+      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
