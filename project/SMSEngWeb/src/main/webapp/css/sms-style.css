@@ -1,0 +1,13 @@
+ #headDiv{
+                background-color: #2f2f6a;
+                height: 100px;
+                color: white;
+                padding: 10px;
+                padding-left: 20px;
+            }
+
+
+            #lineDiv{
+                background-color: orange;
+                height: 8px;
+            }

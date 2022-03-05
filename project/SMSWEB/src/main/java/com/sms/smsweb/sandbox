@@ -1,0 +1,9 @@
+ RequestDispatcher rd = null;
+        try {
+ 
+            rd = request.getRequestDispatcher("home.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        rd.forward(request, response);
