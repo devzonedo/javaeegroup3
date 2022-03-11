@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,7 +37,7 @@
                 <div class="col-10"> 
                     <p style="text-align: right"> ASD Fernando (ADMIN) | <a href="LogoutServlet"> Logout </a> </p>
                     <h2>Home</h2> 
-                
+                    ${userdata.role_code}
                 </div>
             </div>
 

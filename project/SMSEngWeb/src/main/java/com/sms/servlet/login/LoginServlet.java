@@ -5,6 +5,8 @@
  */
 package com.sms.servlet.login;
 
+import com.sms.bean.UserBean;
+import com.sms.businesslogic.user.UserLogic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -42,7 +45,18 @@ public class LoginServlet extends HttpServlet {
             System.out.println("username:" + username);
             System.out.println("pword:" + pword);
 
-            rd = request.getRequestDispatcher("/home.jsp");
+            //get correct login
+            UserBean login = new UserLogic().getLogin(username, pword);
+            if (login.isIsLog()) {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("userdata", login);
+                rd = request.getRequestDispatcher("/home.jsp");
+            } else {
+                request.setAttribute("msg", "<div class=\"alert alert-danger\" role=\"alert\">\n"
+                        + "  Invalid username or password!\n"
+                        + "</div>");
+                rd = request.getRequestDispatcher("/index.jsp");
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

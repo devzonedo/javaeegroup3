@@ -5,6 +5,8 @@
  */
 package com.sms.servlet.login;
 
+import com.sms.bean.UserBean;
+import com.sms.businesslogic.user.UserLogic;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -32,19 +35,32 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         System.out.println("servlet>>LoginServlet");
-        
+
         RequestDispatcher rd = null;
         try {
-            
+
             String uname = request.getParameter("username");
             String pword = request.getParameter("pword");
-            
-            
-            rd = request.getRequestDispatcher("home.jsp");
+
+            //db connect
+            UserBean login = new UserLogic().getLogin(uname, pword);
+            if (login.isIsLog()) {
+                System.out.println("login success");
+                HttpSession session = request.getSession(true);
+                session.setAttribute("userdata", login);
+                rd = request.getRequestDispatcher("home.jsp");
+            } else {
+                System.out.println("invalid username or password");
+                request.setAttribute("msg", "<div class=\"alert alert-danger\" role=\"alert\">\n"
+                        + "  Invalid username or password!\n"
+                        + "</div>");
+                rd = request.getRequestDispatcher("index.jsp");
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         rd.forward(request, response);
     }
 
